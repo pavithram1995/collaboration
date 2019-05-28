@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src="RouteConfig.js"></script>
+<script src="UserController.js"></script>
+
+<!-- Bootstrap CDN here -->
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!-- End of bootstrap CDN -->
+
+<title>index</title>
+</head>
+<body ng-app="myApp" aria-busy="true">
+ <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+<div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/index">Unico</a>
+    </div>
+  <div class="collapse navbar-collapse js-navbar-collapse" id="bs-example-navbar-collapse-1" style="overflow:hidden">
+ 
+  <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#/index">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#/login">login</a></li>
+        <li><a href="#/register">Register</a></li>
+        <li><a href="#/contactus">Contact Us</a></li>
+        <li><a href="#/blog">blog</a></li>
+        
+        <!-- 
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>  
+         -->                                  
+      </ul>
+ </div>
+ </div>
+</nav>
+
+
+<div ng-view></div>
+</body>
+</html>
