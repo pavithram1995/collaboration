@@ -1,4 +1,4 @@
-package com.coll.model;
+ package com.coll.model;
 
 import java.util.Date;
 
@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table
@@ -22,10 +24,11 @@ public class Blog
 	private	String blogName;
 	private String blogContent;
 	private String username;
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
 	private Date createDate;
 	private String status;
-	private String likes;
-	private String dislikes;
+	private int likes;
+	private int dislikes;
 	
 	public int getBlogid() {
 		return blogid;
@@ -63,16 +66,16 @@ public class Blog
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getLikes() {
+	public int getLikes() {
 		return likes;
 	}
-	public void setLikes(String likes) {
+	public void setLikes(int likes) {
 		this.likes = likes;
 	}
-	public String getDislikes() {
+	public int getDislikes() {
 		return dislikes;
 	}
-	public void setDislikes(String dislikes) {
+	public void setDislikes(int dislikes) {
 		this.dislikes = dislikes;
 	}
 

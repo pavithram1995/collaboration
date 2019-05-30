@@ -26,60 +26,77 @@ static BlogDAO blogDAO;
 		blogDAO=(BlogDAO)context.getBean("blogDAO");
 	}
 	
-	
+	@Ignore
 	@Test
 	public void addblogtest() {
 		Blog blog=new Blog();
-		blog.setBlogName("new blog");
-		blog.setBlogContent("third content");
+		blog.setBlogName("books");
+		blog.setBlogContent("Most useful motivational contents");
+		blog.setStatus("NA");
+		blog.setLikes(0);
+		blog.setDislikes(0);
 		blog.setCreateDate(new java.util.Date());
 	
 		assertTrue("problem in adding blog",blogDAO.addBlog(blog));
 	}
 	
 	@Test
-	public void getblogtest() {
-		assertNotNull("problem in getting blog",blogDAO.getBlog(1001));
+	public void getblogtest()
+	{
+		assertNotNull("problem in getting blog",blogDAO.getBlog(1002));
 	}
-	@Ignore
+	
 	@Test
-	public void updateblogtest() {
-		Blog blog=blogDAO.getBlog(1001);
-		blog.setBlogName("second blog");
-		blog.setBlogContent("Second");
-		blog.setLikes("1");
+	public void updateblogtest()
+	{
+		Blog blog=blogDAO.getBlog(1003);
+		blog.setUsername("pavithra");
 		assertTrue("problem in updating blog",blogDAO.updateBlog(blog));
 	}
 	@Ignore
 	@Test
-	public void deleteblogtest() {
+	public void deleteblogtest() 
+	{
 		Blog blog=blogDAO.getBlog(1002);
 		assertTrue("problem in deleting blog",blogDAO.deleteBlog(blog));
 	}
-	@Ignore
+	
 	@Test
-	public void listblogtest() {
+	public void listblogtest()
+	{
 		List<Blog> listBlogs=blogDAO.listBlogs();
-		for(Blog blog:listBlogs) {
+		for(Blog blog:listBlogs)
+		{
 			System.out.println("id:"+blog.getBlogid());
 		}
 	}
+	@Ignore
 	@Test
 	public void incrementlikestest() 
 	{
-		assertTrue("problem in incrementing likes",blogDAO.incrementLikes(1001));
+		assertTrue("problem in incrementing likes",blogDAO.incrementLikes(1002));
 	}
+	
+	@Ignore
 	@Test
-	public void incrementdislikestest() {
-		assertTrue("problem in incrementing likes",blogDAO.incrementDisLikes(1001));
+	public void incrementdislikestest() 
+	{
+		assertTrue("problem in incrementing dislikes",blogDAO.incrementDisLikes(1003));
 	}
+	@Ignore
 	@Test
-	public void approveblogtest() {
-		assertTrue("problem in incrementing likes",blogDAO.approveBlog(1001));
+	public void approveblogtest() 
+	{
+		Blog blog=blogDAO.getBlog(1002);
+		assertTrue("problem in incrementing likes",blogDAO.approveBlog(blog));
 	}
+	
+	@Ignore
 	@Test
-	public void rejectblogtest() {
-		assertTrue("problem in incrementing likes",blogDAO.rejectBlog(1001));
+	public void rejectblogtest()
+	{
+		Blog blog=blogDAO.getBlog(1003);
+		assertTrue("problem in incrementing likes",blogDAO.rejectBlog(blog));
 	}
 	
 }

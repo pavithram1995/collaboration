@@ -44,22 +44,31 @@ static UserDetailDAO userdetailDAO;
 	}
 	
 	@Test
-	public void updateusertest() {
+	public void updateusertest() 
+	{
 		UserDetail user=userdetailDAO.getUser("pavithra");
-		user.setRole("ROLE_ADMIN");
+		user.setIsOnline("Y");
+		user.setStatus("NA");
 		assertTrue("problem in updating user",userdetailDAO.updateUser(user));
 	}
 	
 	@Test
-	public void listusertest() {
+	public void listusertest() 
+	{
 		List<UserDetail> listUsers=userdetailDAO.getUsers();
-		for(UserDetail user:listUsers) {
+		for(UserDetail user:listUsers)
+		{
 			System.out.println("username:"+user.getUsername());
 		}
 	}
 	@Test
-	public void checkusertest() {
-		assertTrue("problem in checking user",userdetailDAO.checkUser("pavi","pavi"));
+	public void checkusertest() 
+	{
+		UserDetail user=userdetailDAO.getUser("pavithra");
+		System.out.println("User has been checked");
+		assertNotNull("problem in checking user",userdetailDAO.checkUser(user));
 	}
+
+	
 	
 }

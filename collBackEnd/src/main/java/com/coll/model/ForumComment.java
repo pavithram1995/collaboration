@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class ForumComment 
 {
@@ -17,6 +19,7 @@ public class ForumComment
 	private int commentId;
 	private int forumId;
 	private String forumComment;
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
 	private Date commentDate;
 	private String username;
 	public int getCommentId() {

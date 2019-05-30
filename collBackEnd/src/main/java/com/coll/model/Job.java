@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Job 
 {
@@ -19,6 +21,7 @@ public class Job
 	private String companyName;
 	private int CTC;
 	private String jobLocation;
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
 	private Date lastDate;
 	private String skills;
 	
