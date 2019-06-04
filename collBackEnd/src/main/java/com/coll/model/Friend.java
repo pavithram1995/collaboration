@@ -12,12 +12,16 @@ public class Friend
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="friendid")
 	@SequenceGenerator(name="friendid",allocationSize=1,sequenceName="friendidseq")
+	
 	private int friendId;
 	private String username;
 	private String friendusername;
-	private String friendName;
+	private String friendfirstname;
+	private String friendlastname;
 	private String status;
-	public int getFriendId() {
+	
+	public int getFriendId()
+	{
 		return friendId;
 	}
 	public void setFriendId(int friendId) {
@@ -34,18 +38,25 @@ public class Friend
 	}
 	public void setFriendusername(String friendusername) {
 		this.friendusername = friendusername;
-	}
-	public String getFriendName() {
-		return friendName;
-	}
-	public void setFriendName(String friendName) {
-		this.friendName = friendName;
-	}
+	}	
 	public String getStatus() {
 		return status;
 	}
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getFriendfirstname() {
+		return friendfirstname;
+	}
+	public void setFriendfirstname(String friendfirstname) {
+		this.friendfirstname = friendfirstname;
+	}
+	public String getFriendlastname() {
+		return friendlastname;
+	}
+	public void setFriendlastname(String friendlastname) {
+		this.friendlastname = friendlastname;
+	}
+	
 	
 }

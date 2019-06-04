@@ -35,7 +35,7 @@ static JobDAO jobDAO;
 	    job.setJobLocation("tambaram");
 	    job.setLastDate(new java.util.Date(2019,06,25));
 	    job.setSkills("java");
-	    assertTrue("problem in adding job",jobDAO.addJob(job));
+	    assertTrue("problem in adding job",jobDAO.publishJob(job));
 	}
 	
 	@Test

@@ -3,13 +3,15 @@ package com.coll.DAO;
 import java.util.List;
 
 import com.coll.model.Friend;
+import com.coll.model.UserDetail;
 
 public interface FriendDAO 
 {
-	public boolean addFriend(Friend friend);
-	public boolean deleteFriend(Friend friend);
-	public boolean updateFriend(Friend friend);
-	public Friend getFriend(int friendid);
-	public List<Friend> getFriends(String username);
-
+	public List<Friend> showFriendList(String username);
+	public List<Friend> showPendingFriendList(String username);
+	public List<UserDetail> showSuggestedFriend(String username);
+	
+	public boolean sendFriendRequest(Friend friend);
+	public boolean acceptFriendRequest(int friendId);
+	public boolean deleteFriendRequest(int friendId);
 }

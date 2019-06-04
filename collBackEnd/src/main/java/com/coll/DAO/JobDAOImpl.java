@@ -21,7 +21,7 @@ public class JobDAOImpl implements JobDAO
 	SessionFactory sessionFactory;
 	
 	@Override
-	public boolean addJob(Job job)
+	public boolean publishJob(Job job)
 	{
 		try {
 			sessionFactory.getCurrentSession().save(job);
