@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,10 +52,11 @@ public ResponseEntity<List<UserDetail>> showAllUser()
 public ResponseEntity<String> addUser(@RequestBody UserDetail userDetail)
 {
 	if(userdetailDAO.addUser(userDetail))
-		return new ResponseEntity<String>("Success",HttpStatus.OK);
+		return new ResponseEntity<String>("User Added",HttpStatus.OK);
 	else
 		return new ResponseEntity<String>("Failure",HttpStatus.INTERNAL_SERVER_ERROR);
 }
+
 @PostMapping("/checkuser")
 public ResponseEntity<UserDetail> checkLogin(@RequestBody UserDetail user,HttpSession session)
 {
@@ -68,5 +70,19 @@ public ResponseEntity<UserDetail> checkLogin(@RequestBody UserDetail user,HttpSe
 	else
 		return new ResponseEntity<UserDetail>(user1,HttpStatus.INTERNAL_SERVER_ERROR);
 	
+}
+@PatchMapping("/updateUser")
+public ResponseEntity<String> updateUser(@RequestBody UserDetail userDetail)
+{
+	UserDetail user1=userdetailDAO.getUser(userDetail.getUsername());
+	user1.setRole(user1.getRole());
+	user1.setStatus(user1.getStatus());
+	user1.setIsOnline(user1.getIsOnline());
+	
+	
+	if(userdetailDAO.updateUser(userDetail))
+		return new ResponseEntity<String>("User Updated",HttpStatus.OK);
+	else
+		return new ResponseEntity<String>("Failure",HttpStatus.INTERNAL_SERVER_ERROR);	
 }
 }

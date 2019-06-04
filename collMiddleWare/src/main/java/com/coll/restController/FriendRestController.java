@@ -49,7 +49,7 @@ public class FriendRestController
 	{
 		friend.setStatus("NA");
 		friend.setFriendusername("abc");
-		friend.setFriendName("abc");
+		friend.setFriendfirstname("abc");
 		friend.setUsername("pavithra");
 		
 		if(friendDAO.addFriend(friend))
