@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" ng-controller="UserController">
 
     <div class="row">
     <div class="col-lg-4 col-sm-12 left text-center">
@@ -35,15 +35,16 @@
             <div class="form-login"></br>
                 <h4>Secure Login</h4>
                 </br>
-                <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username"/>
+                <input type="text" ng-model="userDetail.username" id="userName" class="form-control input-sm chat-input" placeholder="username"/>
                 </br></br>
-                <input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password"/>
+                <input type="password" ng-model="userDetail.password" id="userPassword" class="form-control input-sm chat-input" placeholder="password"/>
                 </br></br>
                 <a href="#/register" class="btn btn-link">Don't have an account? Register</a>
                 </br></br>
                 <div class="wrapper">
                         <span class="group-btn">
-                            <a href="#" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+                        <button type="submit" ng-click="checkUser()"  class="btn btn-primary btn-md">Login<i class="fa fa-sign-in"></i></button>
+                            
                         </span>
                 </div>
             </div>

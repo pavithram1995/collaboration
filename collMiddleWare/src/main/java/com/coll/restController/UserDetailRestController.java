@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -48,7 +49,7 @@ public ResponseEntity<List<UserDetail>> showAllUser()
 	return new ResponseEntity<UserDetail>(user,HttpStatus.OK);
 	}
 
-@PostMapping("/registerUser")
+@PostMapping(value="/registerUser",produces=MediaType.TEXT_PLAIN_VALUE)
 public ResponseEntity<String> addUser(@RequestBody UserDetail userDetail)
 {
 	if(userdetailDAO.addUser(userDetail))
@@ -71,7 +72,7 @@ public ResponseEntity<UserDetail> checkLogin(@RequestBody UserDetail user,HttpSe
 		return new ResponseEntity<UserDetail>(user1,HttpStatus.INTERNAL_SERVER_ERROR);
 	
 }
-@PatchMapping("/updateUser")
+@PatchMapping(value="/updateUser",produces=MediaType.TEXT_PLAIN_VALUE)
 public ResponseEntity<String> updateUser(@RequestBody UserDetail userDetail)
 {
 	UserDetail user1=userdetailDAO.getUser(userDetail.getUsername());

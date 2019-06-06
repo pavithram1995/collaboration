@@ -1,4 +1,4 @@
-myApp.controller("BlogController",function($scope,$location,$rootScope)
+myApp.controller("BlogController",function($scope,$location,$rootScope,$http)
 {
 	$scope.blogDetail={blogid:'',blogName:'',blogContent:'',username:''};
 	
