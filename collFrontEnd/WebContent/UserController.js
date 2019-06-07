@@ -1,6 +1,6 @@
-myApp.controller("UserController",function($scope,$location,$rootScope,$http)
+myApp.controller("UserController",function($scope,$location,$rootScope,$http,$cookieStore)
 {
-	$scope.userDetail={username:'',firstname:'',lastname:'',password:'',emailid:''};
+	$scope.userDetail={username:'',firstname:'',lastname:'',password:'',emailid:'',role:'',status:'',isOnline:''};
 	
 	$rootScope.currentUser;
 	
@@ -12,16 +12,17 @@ myApp.controller("UserController",function($scope,$location,$rootScope,$http)
 		.then(function(response)
 		{
 			console.log('Logged In');
-			console.log(response.data);
-			console.log(response.statusCode);
+			
 			$rootScope.currentUser=response.data;
 			console.log($rootScope.currentUser);
+			$cookieStore.put('userDetail',response.data);
 			$location.path("/blog");
 		},
 		function(errresponse)
 		{
-			console.log('Error');
-			console.log("/login");
+			console.log('Error username or password is incorrect');
+			$scope.error="username or password is incorrect";
+			$location.path("/login");
 		});
 		
 	}
@@ -45,5 +46,14 @@ myApp.controller("UserController",function($scope,$location,$rootScope,$http)
 			console.log(errresponse.data);
 		});
 		
+	}
+	
+	$scope.logout=function()
+	{
+		console.log('Logging out');
+		delete $rootScope.currentUser;
+		$cookieStore.remove('userDetail');
+		alert("Logged Out");
+		$location.path("/login");
 	}
 	});

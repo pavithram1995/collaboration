@@ -72,13 +72,18 @@ public class UserDetailDAOImpl implements UserDetailDAO
 		Query query=session.createQuery("from UserDetail where username=:uname and password=:pword");
 		query.setParameter("uname", user.getUsername());
 		query.setParameter("pword",user.getPassword());
+		
 		List<UserDetail> list=query.list();
 		if(list!=null) 
 		{
 			return list.get(0);
 			
 		}
-		return null;
+		else
+		{
+			return null;
+		}
+		
 		
 	}
 

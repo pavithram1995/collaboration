@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.js"></script>
 <title>Login</title>
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,10 +40,12 @@
                 <input type="password" ng-model="userDetail.password" id="userPassword" class="form-control input-sm chat-input" placeholder="password"/>
                 </br></br>
                 <a href="#/register" class="btn btn-link">Don't have an account? Register</a>
-                </br></br>
+                
+                </br>{{error}}</br>
+                </br>
                 <div class="wrapper">
                         <span class="group-btn">
-                        <button type="submit" ng-click="checkUser()"  class="btn btn-primary btn-md">Login<i class="fa fa-sign-in"></i></button>
+                        <button type="submit" ng-click="checkUser()"  class="btn btn-primary">Login<i class="fa fa-sign-in"></i></button>
                             
                         </span>
                 </div>

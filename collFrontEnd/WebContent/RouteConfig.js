@@ -1,4 +1,4 @@
-var myApp=angular.module("myApp",['ngRoute']);
+var myApp=angular.module("myApp",['ngRoute','ngCookies']);
 
 myApp.config(function($routeProvider)
 		{
@@ -10,4 +10,16 @@ myApp.config(function($routeProvider)
 	.when("/contactus",{templateUrl:"pages/user_pages/Contact_us.html"})
 	.when("/blog",{templateUrl:"pages/blog_pages/blog.html"})
 	
+		});
+
+myApp.run(function($rootScope,$cookieStore)
+		{
+	console.log('I am in run Function');
+	
+	if($rootScope.currentUser==undefined)
+		{
+		
+		$rootScope.currentUser=$cookieStore.get('userDetail');
+		console.log('I am in run Scope');
+		}
 		});
