@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,13 +51,12 @@ public class BlogRestController
 		return new ResponseEntity<Blog>(blog,HttpStatus.OK);
 		}
 	
-	@PostMapping("/addBlog")
+	@PostMapping(value="/addBlog",produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> addBlog(@RequestBody Blog blog)
 	{
 		blog.setCreateDate(new java.util.Date());
 		blog.setLikes(0);
 		blog.setDislikes(0);
-		blog.setUsername("pavithra");
 		blog.setStatus("NA");
 		
 		if(blogDAO.addBlog(blog))
