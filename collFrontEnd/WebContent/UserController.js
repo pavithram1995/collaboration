@@ -6,9 +6,7 @@ myApp.controller("UserController",function($scope,$location,$rootScope,$http,$co
 	
 	$scope.checkUser=function()
 	{
-		console.log($scope.userDetail);
-		
-		$http.post('http://localhost:8080/collMiddleWare/checkuser',JSON.stringify($scope.userDetail))
+		 $http.post('http://localhost:8080/collMiddleWare/checkuser',JSON.stringify($scope.userDetail))
 		.then(function(response)
 		{
 			console.log('Logged In');
@@ -32,7 +30,7 @@ myApp.controller("UserController",function($scope,$location,$rootScope,$http,$co
 		$scope.userDetail.status='Y';
 		$scope.userDetail.isOnline='N';
 		
-		console.log($scope.userDetail);
+		
 		$http.post('http://localhost:8080/collMiddleWare/registerUser',JSON.stringify($scope.userDetail))
 		.then(function(response)
 		{
