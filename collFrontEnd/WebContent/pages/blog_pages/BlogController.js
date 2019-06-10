@@ -34,4 +34,19 @@ myApp.controller("BlogController",function($scope,$location,$rootScope,$http)
 		});
 	}
 	listBlogs();
+	
+	
+	$scope.incrementlikes=function()
+	{
+		$scope.blog.blogid=$rootScope.currentUser.blogid;
+		$http.get('http://localhost:8080/collMiddleWare/incrementLikes/{blogid}')
+		.then(function(response){
+			console.log('Incremented Blog');
+			$scope.blogdata=response.data;
+		},
+		function(errresponse){
+			console.log('Error Occured');
+		});
+		
+	}
 	});
