@@ -69,7 +69,7 @@ public class BlogRestController
 		}
 	}
 
-	@PutMapping("/updateBlog/{blogid}")
+	@PutMapping(value="/updateBlog/{blogid}",produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> updateBlog(@PathVariable("blogid")int blogid)
 	{
 		Blog blog=(Blog)blogDAO.getBlog(blogid);
@@ -90,7 +90,7 @@ public class BlogRestController
 		}
 	}
 	
-	@GetMapping("/deleteBlog/{blogid}")
+	@GetMapping(value="/deleteBlog/{blogid}",produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> deleteBlog(@PathVariable("blogid")int blogid)
 	{
 		Blog blog=(Blog)blogDAO.getBlog(blogid);
@@ -103,7 +103,7 @@ public class BlogRestController
 			return new ResponseEntity<String>("Failure",HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@GetMapping("/approveBlog/{blogId}")
+	@GetMapping(value="/approveBlog/{blogId}",produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> approveBlog(@PathVariable("blogId")int blogid)
 	{
 		Blog blog=(Blog)blogDAO.getBlog(blogid);
@@ -115,7 +115,7 @@ public class BlogRestController
 			return new ResponseEntity<String>("Failure",HttpStatus.INTERNAL_SERVER_ERROR);				
 	}
 	
-	@GetMapping("/rejectBlog/{blogId}")
+	@GetMapping(value="/rejectBlog/{blogId}",produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> rejectBlog(@PathVariable("blogId")int blogid)
 	{
 		Blog blog=(Blog)blogDAO.getBlog(blogid);
@@ -128,7 +128,7 @@ public class BlogRestController
 			return new ResponseEntity<String>("Failure",HttpStatus.INTERNAL_SERVER_ERROR);				
 	}
 	
-	@GetMapping("/incrementLikes/{blogId}")
+	@GetMapping(value="/incrementLikes/{blogId}",produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> incrementLikes(@PathVariable("blogId")int blogId)
 	
 	{
@@ -140,7 +140,7 @@ public class BlogRestController
 			return new ResponseEntity<String>("Failure",HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@GetMapping("/incrementDisLikes/{blogId}")
+	@GetMapping(value="/incrementDisLikes/{blogId}",produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> incrementDisLikes(@PathVariable("blogId")int blogId)
 	
 	{

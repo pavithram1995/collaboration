@@ -50,16 +50,16 @@
         <font color="black" face="calibri" size="2">
         welcome{{currentUser.username}}
         </font>
+        <span>
         <a href="" ng-click="logout()">logout<span class="glyphicon glyphicon-log-out"> </span></a>
-        
-        </div>
-        
+        </span>
+              
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#/addBlog" ng-show="currentUser.role=='ROLE_USER'">Add Blog</a></li>
             <li><a href="#/showBlog">Show Blog</a></li>
-            <li><a href="#" ng-show="currentUser.role=='ROLE_ADMIN'">Manage Blog</a></li>
+            <li><a href="#/adminBlog" ng-show="currentUser.role=='ROLE_ADMIN'">Manage Blog</a></li>
             <!-- <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
@@ -67,7 +67,8 @@
             <li><a href="#">One more separated link</a></li> -->
             
           </ul>
-        </li>  
+        </li> 
+        </div> 
                                          
       </ul>
  </div>

@@ -2,6 +2,10 @@ myApp.controller("BlogController",function($scope,$location,$rootScope,$http)
 {
 	$scope.blog={"blogid":0,"blogName":"","blogContent":"","username":"","createDate":"","status":"","likes":0,"dislikes":0};
 	
+	$rootScope.blogdata;
+	
+	$rootScope.blogid;
+	
 	$scope.addBlog=function()
 	{
 		$scope.blog.username=$rootScope.currentUser.username;
@@ -33,20 +37,106 @@ myApp.controller("BlogController",function($scope,$location,$rootScope,$http)
 			console.log('Error Occured');
 		});
 	}
-	listBlogs();
 	
 	
-	$scope.incrementlikes=function()
+	
+	$scope.incrementLikes=function(blogid)
 	{
-		$scope.blog.blogid=$rootScope.currentUser.blogid;
-		$http.get('http://localhost:8080/collMiddleWare/incrementLikes/{blogid}')
-		.then(function(response){
-			console.log('Incremented Blog');
-			$scope.blogdata=response.data;
+		console.log('Incremented Likes');
+		$http.get('http://localhost:8080/collMiddleWare/incrementLikes/'+blogid)
+		.then(function(response)
+		{
+			listBlogs();
+			$location.path("/showBlog");
 		},
 		function(errresponse){
 			console.log('Error Occured');
 		});
 		
 	}
+	$scope.incrementDisLikes=function(blogid)
+	{
+		console.log('Incremented dislikes');
+		$http.get('http://localhost:8080/collMiddleWare/incrementDisLikes/'+blogid)
+		.then(function(response)
+		{
+			listBlogs();
+			$location.path("/showBlog");
+		},
+		function(errresponse){
+			console.log('Error Occured');
+		});
+		
+	}
+	$scope.deleteBlog=function(blogid)
+	{
+		console.log('Blog Deleted');
+		$http.get('http://localhost:8080/collMiddleWare/deleteBlog/'+blogid)
+		.then(function(response)
+				{
+			listBlogs();
+			alert('Blog Deleted');
+			$location.path("/showBlog");
+				},
+				function(errresponse)
+				{
+					console.log('Error Occured');
+					alert('Error Occured while Deleting Blog');
+			
+				});	
+	}
+	$scope.approve=function(blogid)
+	{
+		console.log('Blog Approved');
+		$http.get('http://localhost:8080/collMiddleWare/approveBlog/'+blogid)
+		.then(function(response)
+				{
+			listBlogs();
+			alert('Blog Approved');
+			$location.path("/adminBlog");
+				},
+				function(errresponse)
+				{
+					console.log('Error Occured');
+					alert('Error Occured while Approving Blog');
+			
+				});	
+	}
+	
+	$scope.reject=function(blogid)
+	{
+		console.log('Blog Rejected');
+		$http.get('http://localhost:8080/collMiddleWare/rejectBlog/'+blogid)
+		.then(function(response)
+				{
+			listBlogs();
+			alert('Blog Rejected');
+			$location.path("/adminBlog");
+				},
+				function(errresponse)
+				{
+					console.log('Error Occured');
+					alert('Error Occured while Rejecting Blog');
+			
+				});	
+	}
+	$scope.editBlog=function(blogid)
+	{
+		console.log('Editing a Blog');
+		$rootScope.blogid=blogid;
+		$location.path("/updateBlog");
+	}
+	function getBlog()
+	{
+		console.log('getting a Blog');
+		$http.get('http://localhost:8080/collMiddleWare/getBlog/'+$rootScope.blogid)
+		.then(function(response)
+				{
+			
+					$scope.blog=response.data;
+				});
+	}
+	getBlog();
+	
+	listBlogs();
 	});

@@ -14,8 +14,22 @@
 <div id="{{blog.blogid}}" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         {{blog.blogContent}}&nbsp;&nbsp;&nbsp;&nbsp;      
-      <img src="likeicon.png" width="20" height="20"/>{{blog.likes}}&nbsp;&nbsp;&nbsp;&nbsp;
-      <img src="dislikesicon.png" width="20" height="20"/>{{blog.dislikes}}
+      <img src="likeicon.png" width="20" height="20" ng-click="incrementLikes(blog.blogid)"/>{{blog.likes}}&nbsp;&nbsp;&nbsp;&nbsp;
+      <img src="dislikesicon.png" width="20" height="20" ng-click="incrementDisLikes(blog.blogid)"/>{{blog.dislikes}}
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span ng-show="blog.username==currentUser.username">
+      <a ng-click="deleteBlog(blog.blogid)">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        
+      <a ng-click="editBlog(blog.blogid)">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+        </span>
+        
       </div>
 </div>
 </div>
