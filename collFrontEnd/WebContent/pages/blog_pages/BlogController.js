@@ -29,7 +29,8 @@ myApp.controller("BlogController",function($scope,$location,$rootScope,$http)
 		console.log('List Blog Method');
 		
 		$http.get('http://localhost:8080/collMiddleWare/showAllBlogs')
-		.then(function(response){
+		.then(function(response)
+				{
 			console.log('Showing all the Blog');
 			$scope.blogdata=response.data;
 		},
@@ -126,15 +127,35 @@ myApp.controller("BlogController",function($scope,$location,$rootScope,$http)
 		$rootScope.blogid=blogid;
 		$location.path("/updateBlog");
 	}
+	
 	function getBlog()
 	{
 		console.log('getting a Blog');
 		$http.get('http://localhost:8080/collMiddleWare/getBlog/'+$rootScope.blogid)
 		.then(function(response)
 				{
-			
+					
 					$scope.blog=response.data;
 				});
+	}
+	$scope.updateBlog=function()
+	{
+		console.log('I am in update blog');
+		$http.post('http://localhost:8080/collMiddleWare/updateBlog',$scope.blog)
+		.then(function(response)
+				{
+					alert("Blog is updated");
+				},
+				function(errresponse)
+				{
+					alert("Error Occured");
+				});
+	}
+	$scope.showComment=function(blogid)
+	{
+		console.log('I am in show comment');
+		$rootScope.blogid=blogid;
+		$location.path("/showBlogComment");
 	}
 	getBlog();
 	

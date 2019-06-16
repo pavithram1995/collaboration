@@ -37,7 +37,7 @@ public class ForumRestController
 				return new ResponseEntity<List<Forum>>(listForums,HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
-		@GetMapping("/getBlog/{forumId}")
+		@GetMapping("/getForum/{forumId}")
 		
 			public ResponseEntity<Forum> getForum(@PathVariable("forumId")int forumId)
 			{

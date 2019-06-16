@@ -5,9 +5,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="RouteConfig.js"></script>
 <script src="UserController.js"></script>
 <script src="pages/blog_pages/BlogController.js"></script>
+<script src="pages/blog_pages/BlogCommentController.js"></script>
 
 <!-- Bootstrap CDN here -->
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -46,7 +48,7 @@
         
         
         <div ng-hide="currentUser==undefined" ng-controller="UserController">
-        <img src="" width="20" height="20"/>
+        <img src="http://localhost:8080/collMiddleWare/getImage/{{currentUser.username}}" width="20" height="20"/>
         <font color="black" face="calibri" size="2">
         welcome{{currentUser.username}}
         </font>
@@ -67,7 +69,8 @@
             <li><a href="#">One more separated link</a></li> -->
             
           </ul>
-        </li> 
+        </li>
+        <li ng-hide="currentUser==Undefined"><a href="#/profileUpload">Profile Update</a></li> 
         </div> 
                                          
       </ul>

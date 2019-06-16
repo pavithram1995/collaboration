@@ -92,7 +92,7 @@ public class FriendRestController
 	{
 		if(friendDAO.sendFriendRequest(friend))
 		{
-			return new ResponseEntity<String>("Friend requested Deleted",HttpStatus.OK);
+			return new ResponseEntity<String>("Friend requested sent",HttpStatus.OK);
 		}
 		else
 			return new ResponseEntity<String>("Failure",HttpStatus.INTERNAL_SERVER_ERROR);

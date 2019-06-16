@@ -69,18 +69,19 @@ public class BlogRestController
 		}
 	}
 
-	@PutMapping(value="/updateBlog/{blogid}",produces=MediaType.TEXT_PLAIN_VALUE)
-	public ResponseEntity<String> updateBlog(@PathVariable("blogid")int blogid)
+	@PostMapping(value="/updateBlog",produces=MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<String> updateBlog(@RequestBody Blog blog)
 	{
-		Blog blog=(Blog)blogDAO.getBlog(blogid);
+		Blog blog1=(Blog)blogDAO.getBlog(blog.getBlogid());
+		blog.setCreateDate(blog1.getCreateDate());
+		blog.setDislikes(blog1.getDislikes());
+		blog.setLikes(blog1.getLikes());
+		blog.setStatus(blog1.getStatus());
+		blog.setUsername(blog1.getUsername());
+		blog.setBlogName(blog1.getBlogName());
+			
 		
-		blog.setCreateDate(new java.util.Date());
-		blog.setLikes(1);
-		blog.setDislikes(1);
-		blog.setStatus("NA");
-		blog.setBlogName("NIITTnagar");
-		
-		if(blogDAO.updateBlog(blog))
+		if(blogDAO.updateBlog(blog1))
 		{
 			return new ResponseEntity<String>("Blog Updated",HttpStatus.OK);
 		}

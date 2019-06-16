@@ -33,6 +33,7 @@ import com.coll.model.Forum;
 import com.coll.model.ForumComment;
 import com.coll.model.Friend;
 import com.coll.model.Job;
+import com.coll.model.ProfilePicture;
 import com.coll.model.UserDetail;
 
 
@@ -90,6 +91,7 @@ public class DBConfig
 		sessionBuilder.addAnnotatedClass(ForumComment.class);
 		sessionBuilder.addAnnotatedClass(Friend.class);
 		sessionBuilder.addAnnotatedClass(Job.class);
+		sessionBuilder.addAnnotatedClass(ProfilePicture.class);
 		
 		System.out.println("Session Factory Object Created");
 		return sessionBuilder.buildSessionFactory();

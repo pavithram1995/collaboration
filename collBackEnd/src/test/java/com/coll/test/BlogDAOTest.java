@@ -88,7 +88,7 @@ static BlogDAO blogDAO;
 	public void approveblogtest() 
 	{
 		Blog blog=blogDAO.getBlog(1002);
-		assertTrue("problem in incrementing likes",blogDAO.approveBlog(blog));
+		assertTrue("problem in Approving Blog",blogDAO.approveBlog(blog));
 	}
 	
 	@Ignore
@@ -96,7 +96,7 @@ static BlogDAO blogDAO;
 	public void rejectblogtest()
 	{
 		Blog blog=blogDAO.getBlog(1003);
-		assertTrue("problem in incrementing likes",blogDAO.rejectBlog(blog));
+		assertTrue("problem in Rejecting Blog",blogDAO.rejectBlog(blog));
 	}
 	
 }
