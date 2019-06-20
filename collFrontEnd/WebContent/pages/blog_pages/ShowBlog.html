@@ -1,10 +1,10 @@
 <br><br><br><br>
-<div class="container" ng-controller="BlogController">
+<div class="container" ng-controller="BlogController" >
 <link href="showblog.css" rel="stylesheet" id="style"></link>
-<div class="container">
+
 <div id="accordion">
-    <div class="card" ng-repeat="blog in blogdata">
-      <div class="card-header" ng-show="blog.status=='A'">
+    <div class="card" ng-repeat="blog in blogdata"  ng-show="blog.status=='A'">
+      <div class="card-header">
         <a class="card-link" data-toggle="collapse" href="/#{{blog.blogid}}">
           {{blog.blogName}}
         </a>
@@ -38,5 +38,5 @@
         
       </div>
 </div>
-</div>
+
 </div>

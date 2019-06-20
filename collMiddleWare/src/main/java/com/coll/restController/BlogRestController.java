@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -74,11 +73,8 @@ public class BlogRestController
 	{
 		Blog blog1=(Blog)blogDAO.getBlog(blog.getBlogid());
 		blog.setCreateDate(blog1.getCreateDate());
-		blog.setDislikes(blog1.getDislikes());
-		blog.setLikes(blog1.getLikes());
-		blog.setStatus(blog1.getStatus());
-		blog.setUsername(blog1.getUsername());
-		blog.setBlogName(blog1.getBlogName());
+		blog1.setBlogContent(blog.getBlogContent());
+		blog1.setBlogName(blog.getBlogName());
 			
 		
 		if(blogDAO.updateBlog(blog1))
