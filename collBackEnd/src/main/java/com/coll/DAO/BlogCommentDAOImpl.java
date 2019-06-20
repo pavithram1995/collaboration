@@ -82,4 +82,14 @@ public class BlogCommentDAOImpl implements BlogCommentDAO
 	    return listComments;
 	}
 
+	@Override
+	public List<BlogComment> listBlogComments(int blogId)
+	{
+		Session session=sessionFactory.openSession();
+	    Query query=session.createQuery("from BlogComment where blogid=:blogId");
+	    query.setParameter("blogId", blogId);
+	    List<BlogComment> listComments=query.list();
+	    return listComments;
+	}
+
 }
