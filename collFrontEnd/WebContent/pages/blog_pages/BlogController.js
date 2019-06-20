@@ -14,7 +14,7 @@ myApp.controller("BlogController",function($scope,$location,$rootScope,$http)
 		{
 			console.log('Blog Added');
 			alert("Blog Added Successfully");
-			$location.path("/addBlog");
+			$location.path("/showBlog");
 		},
 		function(errresponse)
 		{

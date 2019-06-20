@@ -15,7 +15,9 @@ myApp.config(function($routeProvider)
 	.when("/adminBlog",{templateUrl:"pages/blog_pages/ManageBlog.html"})
 	.when("/updateBlog",{templateUrl:"pages/blog_pages/updateBlog.html"})
 	.when("/showBlogComment",{templateUrl:"pages/blog_pages/BlogComment.html"})
-	.when("/friend",{templateUrl:"pages/friend_pages/Friend.html"});
+	.when("/friend",{templateUrl:"pages/friend_pages/Friend.html"})
+	.when("/showfriend",{templateUrl:"pages/friend_pages/showFriends.html"})
+	.when("/chat",{templateUrl:"pages/chat_pages/Chat.html "});
 		});
 
 myApp.run(function($rootScope,$cookieStore)
