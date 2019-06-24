@@ -21,7 +21,7 @@ public class Job
 	private String companyName;
 	private int CTC;
 	private String jobLocation;
-	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yy")
 	private Date lastDate;
 	private String skills;
 	

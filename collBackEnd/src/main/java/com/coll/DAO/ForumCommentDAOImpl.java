@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.coll.model.ForumComment;
+import com.coll.model.ForumComment;
 
 @Repository("forumcommentDAO")
 @Transactional
@@ -77,6 +78,16 @@ public class ForumCommentDAOImpl implements ForumCommentDAO
 		Query query=session.createQuery("from ForumComment");
 		List<ForumComment> listComments=query.list();
 		return listComments;
+	}
+
+	@Override
+	public List<ForumComment> listForumComments(int forumId) 
+	{
+		Session session=sessionFactory.openSession();
+	    Query query=session.createQuery("from ForumComment where forumid=:forumId");
+	    query.setParameter("forumId", forumId);
+	    List<ForumComment> listComments=query.list();
+	    return listComments;
 	}
 
 }

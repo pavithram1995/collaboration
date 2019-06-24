@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.coll.model.ForumComment;
 
+
 public interface ForumCommentDAO
 {
 
@@ -12,4 +13,5 @@ public boolean updateForumComment(ForumComment forumcomment);
 public boolean deleteForumComment(ForumComment forumcomment);
 public ForumComment getForumComment(int commentId);
 public List<ForumComment> getForumComments();
+public List<ForumComment> listForumComments(int forumId);
 }
