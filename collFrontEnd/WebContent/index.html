@@ -18,6 +18,9 @@
 <script src="pages/friend_pages/FriendController.js"></script>
 <script src="pages/chat_pages/ChatController.js"></script>
 <script src="pages/chat_pages/ChatService.js"></script>
+<script src="pages/forum_pages/ForumController.js"></script>
+<script src="pages/forum_pages/ForumCommentController.js"></script>
+<script src="pages/job_pages/JobController.js"></script>
 
 <!-- Bootstrap CDN here -->
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -49,12 +52,12 @@
  <ul class="navbar-nav">    
       <a ng-hide="currentUser==Undefined" class="nav-link" href="#/profileUpload">Profile Update</a>
       <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" ng-hide="currentUser==Undefined" href="#/friend">Friend <b class="caret"></b></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" ng-hide="currentUser==Undefined" href="#/friend">Friend <b class="caret"></b></a>&nbsp;&nbsp;&nbsp;&nbsp;
           <ul class="dropdown-menu">
             <li><a href="#/showfriend" ng-show="currentUser.role=='ROLE_USER'">Show friends</a></li>
             </ul>
-            </li>
-      <li ng-hide="currentUser==undefined"><a href="#/chat">Chat</a></li>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;
+      <li ng-hide="currentUser==undefined"><a href="#/chat">Chat</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
     </ul>
  
   <ul class="nav navbar-nav navbar-right">
@@ -69,6 +72,14 @@
           <li><a href="#/showBlog">Show Blog</a></li>
           </ul>
           </li>
+          <li ng-show="currentUser==undefined" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">Forum <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li><a href="#/addForum" ng-show="currentUser.role=='ROLE_USER'">Add Forum</a></li>
+          <li><a href="#/showForum">Show Forum</a></li>
+          <li><a href="#/adminForum" ng-show="currentUser.role=='ROLE_ADMIN'">Manage Forum</a></li>
+          </ul>
+          </li>
                  
         
         <div ng-hide="currentUser==undefined" >
@@ -79,8 +90,9 @@
         <span>
         <a href="" ng-click="logout()">logout<span class="glyphicon glyphicon-log-out"> </span></a>
         </span>
-              
-        <li class="dropdown">
+        
+          <ul>   
+        <ul class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#/addBlog" ng-show="currentUser.role=='ROLE_USER'">Add Blog</a></li>
@@ -91,10 +103,30 @@
             <li><a href="#">Separated link</a></li>
             <li class="divider"></li>
             <li><a href="#">One more separated link</a></li> -->
+                      
+        </ul>
+        </ul>
+        
+         <ul class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">Forum <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#/addForum" ng-show="currentUser.role=='ROLE_USER'">Add Forum </a></li>
+            <li><a href="#/showForum">Show Forum </a></li>
+            <li><a href="#/adminForum" ng-show="currentUser.role=='ROLE_ADMIN'">Manage Forum </a></li>
+            <!-- <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li> -->
             
           </ul>
-        </li>
-         
+        </ul>
+        
+       <ul> 
+       <a href="#/showJob" ng-show="currentUser.role=='ROLE_USER'"> Job </a>
+       <a href="#/adminJob" ng-show="currentUser.role=='ROLE_ADMIN'">Manage Job </a>
+       </ul>
+       </ul>
         </div> 
                                          
       </ul>

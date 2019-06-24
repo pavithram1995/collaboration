@@ -1,0 +1,77 @@
+<br/><br/><br/><br/>
+<div class="container" ng-controller="JobController">    
+            
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Add Job</div>
+               
+            </div>  
+            <div class="panel-body" >
+                
+                    <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />                                               
+                       
+                        <div id="job_desig" class="form-group required">
+                            <label for="job_desig" class="control-label col-md-4 "> Job Designation </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" ng-model="job.jobDesignation" id="job_desig" maxlength="30" name="desig" placeholder="Job Designation" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                       
+                        
+                          <div id="companyName" class="form-group required">
+                            <label for="companyName" class="control-label col-md-4 "> Company Name</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" ng-model="job.companyName" id="companyName" maxlength="30" name="companyName" placeholder="Company Name" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                        
+                        <div id="CTC" class="form-group required">
+                            <label for="CTC" class="control-label col-md-4 ">CTC</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" ng-model="job.ctc" id="CTC" maxlength="30" name="CTC" placeholder="CTC" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                        
+                         <div id="jobLocation" class="form-group required">
+                            <label for="jobLocation" class="control-label col-md-4 ">jobLocation</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" ng-model="job.jobLocation" id="location" maxlength="30" name="location" placeholder="jobLocation" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                        
+                        <div id="lastDate" class="form-group required">
+                            <label for="lastDate" class="control-label col-md-4 ">last Date To Apply</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" ng-model="job.lastDate" id="lastDate" maxlength="30" name="lastDate" placeholder="last Date To Apply" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                        
+                        <div id="skills" class="form-group required">
+                            <label for="skills" class="control-label col-md-4 ">skills</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" ng-model="job.skills" id="skills" maxlength="30" name="skills" placeholder="skills" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group"> 
+                            <div class="aab controls col-md-4 "></div>
+                            <div class="controls col-md-8 ">
+                                <button type="submit" ng-click="publishJob()" class="btn btn-primary btn btn-info">Add Job</button>
+                               
+                            </div>
+                        </div> 
+                            
+                    
+
+                
+            </div>
+        </div>
+    </div> 
+</div>
+    
+
+
+
+
+

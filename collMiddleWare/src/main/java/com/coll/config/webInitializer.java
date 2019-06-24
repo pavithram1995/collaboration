@@ -14,7 +14,7 @@ public class webInitializer extends  AbstractAnnotationConfigDispatcherServletIn
 {
 	protected void customizeRegistration(ServletRegistration.Dynamic registration)
 	{
-		System.out.println("Customize Registration");
+		System.out.println("---Customize Registration---");
 		registration.setInitParameter("dispatchOptionsRequest", "true");
 		registration.setAsyncSupported(true);
 	}

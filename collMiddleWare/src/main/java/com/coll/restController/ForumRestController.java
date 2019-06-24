@@ -4,16 +4,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coll.DAO.ForumDAO;
+import com.coll.model.Blog;
 import com.coll.model.Forum;
 
 @RestController
@@ -45,11 +46,11 @@ public class ForumRestController
 			return new ResponseEntity<Forum>(forum,HttpStatus.OK);
 			}
 		
-		@PostMapping("/addForum")
+		@PostMapping(value="/addForum",produces=MediaType.TEXT_PLAIN_VALUE)
 		public ResponseEntity<String> addForum(@RequestBody Forum forum)
 		{
 			forum.setCreateDate(new java.util.Date());
-			forum.setUsername("pavithra");
+			
 			forum.setStatus("NA");
 			
 			if(forumDAO.addForum(forum))
@@ -62,14 +63,16 @@ public class ForumRestController
 			}
 		}
 		
-		@PutMapping("/updateForum/{forumId}")
-		public ResponseEntity<String> updateBlog(@PathVariable("forumId")int forumId)
+		@PostMapping(value="/updateForum",produces=MediaType.TEXT_PLAIN_VALUE)
+		
+		public ResponseEntity<String> updateBlog(@RequestBody Forum forum)
 		{
-			Forum forum=(Forum)forumDAO.getForum(forumId);
-			forum.setForumContent("Content");
-			
-			
-			if(forumDAO.updateForum(forum))
+			Forum forum1=(Forum)forumDAO.getForum(forum.getForumId());
+			forum.setCreateDate(forum1.getCreateDate());
+			forum1.setForumContent(forum.getForumContent());
+			forum1.setForumName(forum.getForumName());
+												
+			if(forumDAO.updateForum(forum1))
 			{
 				return new ResponseEntity<String>("Forum Updated",HttpStatus.OK);
 			}
@@ -79,7 +82,7 @@ public class ForumRestController
 			}
 		}
 		
-		@DeleteMapping("/deleteForum/{forumId}")
+		@DeleteMapping(value="/deleteForum/{forumId}",produces=MediaType.TEXT_PLAIN_VALUE)
 		public ResponseEntity<String> deleteForum(@PathVariable("forumId")int forumId)
 		{
 			Forum forum=(Forum)forumDAO.getForum(forumId);
@@ -92,7 +95,7 @@ public class ForumRestController
 				return new ResponseEntity<String>("Failure",HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
-		@GetMapping("/approveForum/{forumId}")
+		@GetMapping(value="/approveForum/{forumId}",produces=MediaType.TEXT_PLAIN_VALUE)
 		public ResponseEntity<String> approveForum(@PathVariable("forumId")int forumId)
 		{
 			Forum forum=(Forum)forumDAO.getForum(forumId);
@@ -104,7 +107,7 @@ public class ForumRestController
 				return new ResponseEntity<String>("Failure",HttpStatus.INTERNAL_SERVER_ERROR);				
 		}
 		
-		@GetMapping("/rejectForum/{forumId}")
+		@GetMapping(value="/rejectForum/{forumId}",produces=MediaType.TEXT_PLAIN_VALUE)
 		public ResponseEntity<String> rejectBlog(@PathVariable("forumId")int forumId)
 		{
 			Forum forum=(Forum)forumDAO.getForum(forumId);

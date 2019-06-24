@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,16 +42,17 @@ public class JobRestController
 		public ResponseEntity<Job> getBlog(@PathVariable("jobId")int jobId)
 		{
 		Job job=(Job)jobDAO.getJob(jobId);
+		
 		return new ResponseEntity<Job>(job,HttpStatus.OK);
 		}
 	
-	@PostMapping("/publishJob")
+	@PostMapping(value="/publishJob",produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> publishJob(@RequestBody Job job)
 	{
 		if(jobDAO.publishJob(job));
 		return new ResponseEntity<String>("Job Published",HttpStatus.OK);
 	}
-	@DeleteMapping("/deleteJob/{jobId}")
+	@DeleteMapping(value="/deleteJob/{jobId}",produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> deleteJob(@PathVariable ("jobId")int jobId)
 	{
 		Job job=(Job)jobDAO.getJob(jobId);

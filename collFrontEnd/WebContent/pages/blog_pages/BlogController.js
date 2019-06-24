@@ -88,12 +88,13 @@ myApp.controller("BlogController",function($scope,$location,$rootScope,$http)
 	}
 	$scope.approve=function(blogid)
 	{
-		console.log('Blog Approved');
+		
 		$http.get('http://localhost:8080/collMiddleWare/approveBlog/'+blogid)
 		.then(function(response)
 				{
 			listBlogs();
 			alert('Blog Approved');
+			console.log('Blog Approved');
 			$location.path("/adminBlog");
 				},
 				function(errresponse)
@@ -106,12 +107,13 @@ myApp.controller("BlogController",function($scope,$location,$rootScope,$http)
 	
 	$scope.reject=function(blogid)
 	{
-		console.log('Blog Rejected');
+		
 		$http.get('http://localhost:8080/collMiddleWare/rejectBlog/'+blogid)
 		.then(function(response)
 				{
 			listBlogs();
 			alert('Blog Rejected');
+			console.log('Blog Rejected');
 			$location.path("/adminBlog");
 				},
 				function(errresponse)
