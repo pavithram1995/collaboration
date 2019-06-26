@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <!-- End of bootstrap CDN -->
 
-<title>index</title>
+<title>collaboration</title>
 </head>
 <body ng-app="myApp" aria-busy="true">
  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -49,8 +50,8 @@
     </div>
   <div class="collapse navbar-collapse js-navbar-collapse" id="bs-example-navbar-collapse-1" style="overflow:hidden">
  
- <ul class="navbar-nav">    
-      <a ng-hide="currentUser==Undefined" class="nav-link" href="#/profileUpload">Profile Update</a>
+ 
+     <ul class="nav navbar-nav navbar-left">
       <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" ng-hide="currentUser==Undefined" href="#/friend">Friend <b class="caret"></b></a>&nbsp;&nbsp;&nbsp;&nbsp;
           <ul class="dropdown-menu">
@@ -58,8 +59,8 @@
             </ul>
             </li>&nbsp;&nbsp;&nbsp;&nbsp;
       <li ng-hide="currentUser==undefined"><a href="#/chat">Chat</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-    </ul>
- 
+    
+ </ul>
   <ul class="nav navbar-nav navbar-right">
           <li class="active" ng-show="currentUser==undefined"><a href="#/index">Home</a></li>
         <li ng-show="currentUser==undefined"><a href="#">About Us</a></li>
@@ -81,57 +82,53 @@
           </ul>
           </li>
                  
-        
-        <div ng-hide="currentUser==undefined" >
-        <img src="http://localhost:8080/collMiddleWare/getImage/{{currentUser.username}}" width="20" height="20"/>
-        <font color="black" face="calibri" size="2">
-        welcome{{currentUser.username}}
-        </font>
-        <span>
-        <a href="" ng-click="logout()">logout<span class="glyphicon glyphicon-log-out"> </span></a>
-        </span>
-        
-          <ul>   
-        <ul class="dropdown">
+       
+            
+        <li ng-hide="currentUser==undefined" class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#/addBlog" ng-show="currentUser.role=='ROLE_USER'">Add Blog</a></li>
             <li><a href="#/showBlog">Show Blog</a></li>
             <li><a href="#/adminBlog" ng-show="currentUser.role=='ROLE_ADMIN'">Manage Blog</a></li>
-            <!-- <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li> -->
-                      
-        </ul>
-        </ul>
+             </ul>
+        </li>
         
-         <ul class="dropdown">
+         <li ng-hide="currentUser==undefined" class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">Forum <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#/addForum" ng-show="currentUser.role=='ROLE_USER'">Add Forum </a></li>
             <li><a href="#/showForum">Show Forum </a></li>
             <li><a href="#/adminForum" ng-show="currentUser.role=='ROLE_ADMIN'">Manage Forum </a></li>
-            <!-- <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li> -->
-            
-          </ul>
-        </ul>
+           </ul>
+        </li>
         
-       <ul> 
+       <li> 
        <a href="#/showJob" ng-show="currentUser.role=='ROLE_USER'"> Job </a>
        <a href="#/adminJob" ng-show="currentUser.role=='ROLE_ADMIN'">Manage Job </a>
-       </ul>
-       </ul>
+       </li>
+       
+       <li ng-hide="currentUser==undefined" class="dropdown">
+       <a class="dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li> <a class="nav-link" href="#/profileUpload">Profile Update</a></li>                    
+            <li><a href="" ng-click="logout()">logout<span class="glyphicon glyphicon-log-out"> </span></a></li>
+          </ul>
+          </li>
+          
+           
+        <li ng-hide="currentUser==undefined" >
+        <img src="http://localhost:8080/collMiddleWare/getImage/{{currentUser.username}}" width="20" height="20"/>
+        <font color="black" face="calibri" size="2">
+        welcome!!!{{currentUser.username}}
+        </font>        
+        </li>
+        </ul>
+       
         </div> 
                                          
-      </ul>
+      
  </div>
- </div>
+ 
 </nav>
 
 

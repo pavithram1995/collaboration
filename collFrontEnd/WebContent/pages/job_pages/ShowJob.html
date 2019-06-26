@@ -1,18 +1,21 @@
-<br/><br/><br/><br/>
+<br/><br/><br/><br/><br/>
 <link href="job.css" rel="stylesheet" id="style"></link>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <div class="container" ng-controller="JobController">
 <div class="row-fluid" ng-repeat="job in jobdata"> 
       <div class="col-sm-6">
-          <div class="panel panel-default">
+          <div class="panel panel-info">
           <div class="panel-heading">
             
-            <h3 class="panel-title" itemprop="name">{{job.companyName}}<br/>{{job.jobDesignation}}</h3>
-            <span ng-show="currentUser.role=='ROLE_ADMIN'">
-      <a ng-click="deleteJob(job.jobid)">
+            <h5 class="panel-title" itemprop="name">{{job.companyName}}<br/></h5><h3>{{job.jobDesignation}}</h3>
+                  <div class ="pull-right" style="display: inline">
+            <span ng-show="currentUser.role=='ROLE_ADMIN'" >
+      <a ng-click="deleteJob(job.jobId)">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
+        </span>
+        </div>
           </div><!--/panel-heading-->
           <div class="panel-body" itemprop="reviewBody">
                       <h5>{{job.skills}}
@@ -20,48 +23,17 @@
                       </h5>						                                    
                       <small>{{job.jobLocation}}</small>
                       <p><small>{{job.ctc}}</small></p>
+                      <div class ="pull-right" style="display: inline">
+                      <span ng-show="job.status=='NA'">
+                      <button type="submit" ng-click="apply(job.jobId)" class="btn btn-primary btn btn-info">Apply</button>
+                      </span>
+                       <span ng-show="job.status=='A'">
+                      <small>job Applied</small>
+                      </span>
+                      </div>
           </div><!--/panel-body-->
                  
       </div><!--/panel-->
       </div><!--/col-sm-6-->
   </div>
 </div>
-
-<!-- <section class="mb-5">
-Showing Jobs
-    <div class="container" ng-controller="JobController">
-		 <div class="row">
-			<div class="col-md-9">
-				 <div class="row mb-3">
-				                <div class="col-md-12">
-				                
-				                
-				                    <div class="card" ng-repeat="job in jobdata">
-				                    	<div class="card-header">
-				                    	{{job.companyName}}<br/>
-				                    	{{job.jobDesignation}}
-				                    	
-				                    	</div>
-						                        <div class="card-body">
-						                            <div class="row">
-						                                <div class="col-md-3">
-						                                   
-						                                </div>
-						                                <div class="col-md-7">
-						                                    <h5>{{job.skills}}
-						                                    Last Date To Apply:-{{job.lastDate}}
-						                                    </h5>						                                    
-						                                    <small>{{job.jobLocation}}</small>
-						                                    <p><small>{{job.ctc}}</small></p>
-						                                </div>
-						                                
-						                            </div>
-				                            </div>
-				                        
-				                    </div>
-				                </div>
-				            </div>
-			            </div>
-		            </div>
-	            </div>
-            </section> -->
