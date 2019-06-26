@@ -67,4 +67,30 @@ public class JobDAOImpl implements JobDAO
 		return listJobs;
 	}
 
+	@Override
+	public boolean applyJob(Job job) 
+	{
+	
+		try
+		{
+			job.setStatus("A");
+			sessionFactory.getCurrentSession().update(job);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;	
+		}
+	}
+
+	@Override
+	public List<Job> listJobs(String username) 
+	{
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Job where username=:uname and status='NA'");
+		query.setParameter("uname", username);
+		List<Job> applyJobs=query.list();
+		return applyJobs;
+	}
+
 }

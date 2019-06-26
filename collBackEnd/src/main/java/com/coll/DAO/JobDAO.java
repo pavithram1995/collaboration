@@ -11,5 +11,7 @@ public boolean publishJob(Job job);
 public boolean deleteJob(Job job);
 public Job getJob(int jobId);
 public List<Job> getJobs();
+public boolean applyJob(Job job);
+public List<Job> listJobs(String username);
 
 }

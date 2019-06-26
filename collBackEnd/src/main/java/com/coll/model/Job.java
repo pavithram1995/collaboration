@@ -23,7 +23,9 @@ public class Job
 	private String jobLocation;
 	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yy")
 	private Date lastDate;
+	private String status;
 	private String skills;
+	private String username;
 	
 	public int getJobId() {
 		return jobId;
@@ -67,5 +69,18 @@ public class Job
 	public void setSkills(String skills) {
 		this.skills = skills;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 	
 }

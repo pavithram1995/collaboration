@@ -43,7 +43,7 @@ public class FriendDAOImpl implements FriendDAO
 		List<Friend> friendList=query.list();
 		return friendList;
 	}
-
+ 
 	@Override
 	public List<UserDetail> showSuggestedFriend(String username) 
 	{
