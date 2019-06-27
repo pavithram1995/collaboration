@@ -32,6 +32,8 @@
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <!-- End of bootstrap CDN -->
 
+
+
 <title>collaboration</title>
 </head>
 <body ng-app="myApp" aria-busy="true">
@@ -62,7 +64,7 @@
     
  </ul>
   <ul class="nav navbar-nav navbar-right">
-          <li class="active" ng-show="currentUser==undefined"><a href="#/index">Home</a></li>
+        <li ng-show="currentUser==undefined"><a href="#/home">Home</a></li>
         <li ng-show="currentUser==undefined"><a href="#">About Us</a></li>
         <li ng-show="currentUser==undefined"><a href="#/login">login</a></li>
         <li ng-show="currentUser==undefined"><a href="#/register">Register</a></li>
@@ -117,10 +119,12 @@
           
            
         <li ng-hide="currentUser==undefined" >
+          
         <img src="http://localhost:8080/collMiddleWare/getImage/{{currentUser.username}}" width="20" height="20"/>
         <font color="black" face="calibri" size="2">
         welcome!!!{{currentUser.username}}
-        </font>        
+        </font>  
+            
         </li>
         </ul>
        

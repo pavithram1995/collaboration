@@ -1,4 +1,5 @@
 <br><br><br><br>
+<!-- 
 <link href="showblog.css" rel="stylesheet" id="style"></link>
 
 <div class="container" ng-controller="ForumController">
@@ -37,4 +38,40 @@
 </div>
 </div>
 </div>
+</div> -->
+
+<div class="container" ng-controller="ForumController" >
+	<div class="row" ng-repeat="forum in forumdata"  ng-show="forum.status=='A'">
+		<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="/#{{forum.forumId}}">
+        {{forum.forumName}}</a>
+      </h4>
+      <span class="pull-right">
+      
+      <span ng-show="forum.username==currentUser.username">
+      <a ng-click="deleteForum(forum.forumId)">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        
+      <a ng-click="editForum(forum.forumId)">
+          <span class="glyphicon glyphicon-edit"></span>
+        </a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+         <a ng-click="showComment(forum.forumId)">
+          <span class="glyphicon glyphicon-comment"></span>
+        </a>
+        </span>
+    </div>
+    <div id="{{forum.forumId}}" class="panel-collapse collapse">
+      <div class="panel-body">{{forum.forumContent}}</div>
+    </div>
+  </div>
+</div>
+	</div>
 </div>

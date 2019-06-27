@@ -61,14 +61,18 @@ public ResponseEntity<String> addUser(@RequestBody UserDetail userDetail)
 @PostMapping("/checkuser")
 public ResponseEntity<UserDetail> checkLogin(@RequestBody UserDetail user,HttpSession session)
 {
+	user.setIsOnline("N");
 	UserDetail user1=userdetailDAO.checkUser(user);
+	
 	
 	if(user1!=null)
 	{
+		user1.setIsOnline("Y");
 		session.setAttribute("userDetail", user1);
 		return new ResponseEntity<UserDetail>(user1,HttpStatus.OK);
 	}
 	else
+				
 		return new ResponseEntity<UserDetail>(user1,HttpStatus.INTERNAL_SERVER_ERROR);
 	
 }
@@ -78,7 +82,7 @@ public ResponseEntity<String> updateUser(@RequestBody UserDetail userDetail)
 	UserDetail user1=userdetailDAO.getUser(userDetail.getUsername());
 	user1.setRole(user1.getRole());
 	user1.setStatus(user1.getStatus());
-	user1.setIsOnline(user1.getIsOnline());
+	user1.setIsOnline(userDetail.getIsOnline());
 	
 	
 	if(userdetailDAO.updateUser(userDetail))

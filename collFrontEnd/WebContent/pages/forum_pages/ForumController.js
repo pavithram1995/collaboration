@@ -33,6 +33,7 @@ myApp.controller("ForumController",function($scope,$location,$rootScope,$http)
 				{
 			console.log('Showing all the Forum');
 			$scope.forumdata=response.data;
+			console.log(forumName);
 			console.log(' Forum Data');
 		},
 		function(errresponse){

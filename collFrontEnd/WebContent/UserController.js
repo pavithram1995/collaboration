@@ -6,11 +6,13 @@ myApp.controller("UserController",function($scope,$location,$rootScope,$http,$co
 	
 	$scope.checkUser=function()
 	{
+		
 		 $http.post('http://localhost:8080/collMiddleWare/checkuser',JSON.stringify($scope.userDetail))
 		.then(function(response)
 		{
 			console.log('Logged In');
-			
+			$scope.userDetail.isOnline='Y';
+			console.log($scope.userDetail.isOnline);
 			$rootScope.currentUser=response.data;
 			console.log($rootScope.currentUser);
 			$cookieStore.put('userDetail',response.data);
@@ -48,7 +50,10 @@ myApp.controller("UserController",function($scope,$location,$rootScope,$http,$co
 	
 	$scope.logout=function()
 	{
+		
 		console.log('Logging out');
+		$scope.userDetail.isOnline='N';
+		console.log($scope.userDetail.isOnline);
 		delete $rootScope.currentUser;
 		$cookieStore.remove('userDetail');
 		alert("Logged Out");

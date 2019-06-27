@@ -1,5 +1,5 @@
 <br><br><br><br>
-
+<!-- 
 <link href="showblog.css" rel="stylesheet" id="style"></link>
 <div class="container" ng-controller="BlogController" >
 <div id="accordion">
@@ -39,4 +39,44 @@
       </div>
 </div>
 
+</div>
+-->
+
+
+<div class="container" ng-controller="BlogController" >
+	<div class="row" ng-repeat="blog in blogdata"  ng-show="blog.status=='A'">
+		<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="/#{{blog.blogid}}">
+        {{blog.blogName}}</a>
+      </h4>
+      <span class="pull-right">
+      <img src="likeicon.png" width="20" height="20" ng-click="incrementLikes(blog.blogid)"/>{{blog.likes}}&nbsp;&nbsp;&nbsp;&nbsp;
+      <img src="dislikesicon.png" width="20" height="20" ng-click="incrementDisLikes(blog.blogid)"/>{{blog.dislikes}}
+      
+      <span ng-show="blog.username==currentUser.username">
+      <a ng-click="deleteBlog(blog.blogid)">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        
+      <a ng-click="editBlog(blog.blogid)">
+          <span class="glyphicon glyphicon-edit"></span>
+        </a>
+        
+        </span>
+         <a ng-click="showComment(blog.blogid)">
+          <span class="glyphicon glyphicon-comment"></span>
+        </a>
+        </span>
+    </div>
+    <div id="{{blog.blogid}}" class="panel-collapse collapse">
+      <div class="panel-body"> {{blog.blogContent}}</div>
+    </div>
+  </div>
+</div>
+	</div>
 </div>

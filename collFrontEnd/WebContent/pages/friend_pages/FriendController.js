@@ -1,6 +1,6 @@
 myApp.controller("FriendController",function($scope,$location,$rootScope,$http)
 {
-	$scope.friend={friendId:0, username:'', friendusername:'', friendFirstName:'', friendLastName:'', status:''};
+	$scope.friend={"friendId":0, "username":"", "friendusername":"", "friendFirstName":"", "friendLastName":"", "status":""};
 	 $scope.showFriends;
 	    $scope.friendRequests;
 	    $scope.suggestedFriends;
@@ -81,7 +81,8 @@ myApp.controller("FriendController",function($scope,$location,$rootScope,$http)
 	    	 }); 		
 	    }
 	    
-	    $scope.sendRequest=function(username) {
+	    $scope.sendRequest=function(username)
+	    {
 	    	 $scope.friend.username=$rootScope.currentUser.username;
 	    	
 	    	 $scope.friend.friendusername=username;
