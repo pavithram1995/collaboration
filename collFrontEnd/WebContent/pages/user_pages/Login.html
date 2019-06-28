@@ -36,7 +36,11 @@
             <div class="form-login"></br>
                 <h4>Secure Login</h4>
                 </br>
-                <input type="text" ng-model="userDetail.username" id="userName" class="form-control input-sm chat-input" placeholder="username"/>
+                <input type="text" ng-model="userDetail.username" id="userName" class="form-control input-sm chat-input" 
+                placeholder="username"
+                pattern="[A-Za-z0-9]+" 
+				title="Enter only the alphabets between a to z"
+				required/>
                 </br></br>
                 <input type="password" ng-model="userDetail.password" id="userPassword" class="form-control input-sm chat-input" placeholder="password"/>
                 </br></br>

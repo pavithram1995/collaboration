@@ -8,6 +8,7 @@ myApp.config(function($routeProvider)
 	.when("/login",{templateUrl:"pages/user_pages/Login.html"})
 	.when("/register",{templateUrl:"pages/user_pages/Register.html"})
 	.when("/contactus",{templateUrl:"pages/user_pages/Contact_us.html"})
+	.when("/about",{templateUrl:"pages/user_pages/about_us.html"})
 	.when("/profileUpload",{templateUrl:"pages/user_pages/ProfileUpload.html"})
 	
 	.when("/blog",{templateUrl:"pages/blog_pages/blog.html"})

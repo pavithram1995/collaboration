@@ -16,13 +16,13 @@ myApp.controller("UserController",function($scope,$location,$rootScope,$http,$co
 			$rootScope.currentUser=response.data;
 			console.log($rootScope.currentUser);
 			$cookieStore.put('userDetail',response.data);
-			$location.path("/blog");
+			$location.path("/home");
 		},
 		function(errresponse)
 		{
 			console.log('Error username or password is incorrect');
 			$scope.error="username or password is incorrect";
-			$location.path("/login");
+			$location.path("/register");
 		});
 		
 	}
@@ -43,6 +43,7 @@ myApp.controller("UserController",function($scope,$location,$rootScope,$http,$co
 		function(errresponse)
 		{
 			console.log('Error occured during registration');
+			$scope.regerror="username already taken";
 			console.log(errresponse.data);
 		});
 		

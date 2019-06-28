@@ -65,7 +65,7 @@
  </ul>
   <ul class="nav navbar-nav navbar-right">
         <li ng-show="currentUser==undefined"><a href="#/home">Home</a></li>
-        <li ng-show="currentUser==undefined"><a href="#">About Us</a></li>
+        <li ng-show="currentUser==undefined"><a href="#/about">About Us</a></li>
         <li ng-show="currentUser==undefined"><a href="#/login">login</a></li>
         <li ng-show="currentUser==undefined"><a href="#/register">Register</a></li>
         <li ng-show="currentUser==undefined"><a href="#/contactus">Contact Us</a></li>
@@ -122,7 +122,7 @@
           
         <img src="http://localhost:8080/collMiddleWare/getImage/{{currentUser.username}}" width="20" height="20"/>
         <font color="black" face="calibri" size="2">
-        welcome!!!{{currentUser.username}}
+        welcome!!!{{" "+currentUser.firstname+" "+currentUser.lastname}}
         </font>  
             
         </li>
